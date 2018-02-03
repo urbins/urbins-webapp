@@ -31,8 +31,8 @@
   <body>
     <div class="background"></div>
     <button data-toggle="modal" data-target="#garbageBin1" class="map-icon map-icon-location1"></button>
-    <button data-toggle="modal" data-target="#tourModal" class="map-icon map-icon-location2"></button>
-    <button data-toggle="modal" data-target="#tourModal" class="map-icon map-icon-location3"></button>
+    <button data-toggle="modal" data-target="#garbageBin2" class="map-icon map-icon-location2"></button>
+    <button data-toggle="modal" data-target="#garbageBin3" class="map-icon map-icon-location3"></button>
   </body>
 
   <div class="modal fade modalDown" id="garbageBin1" role="dialog">
@@ -41,7 +41,7 @@
        <div class="modal-content">
          <div class="modal-header">
            <button type="button" class="close" data-dismiss="modal">&times;</button>
-           <h4 class="modal-title">220 University Avenue</h4>
+           <h4 class="modal-title">350 Union Street West</h4>
            <div class="dateTime" id="timeyboye"></div>
          </div>
          <div class="modal-body">
@@ -54,6 +54,56 @@
              <div class="border-recycle"></div>
              <div class="progress-bar progress-recycle" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
              <div class="progress-bar progress-garbage" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+           </div>
+         </div>
+       </div>
+     </div>
+  </div>
+
+  <div class="modal fade modalDown" id="garbageBin2" role="dialog">
+     <div class="modal-dialog">
+       <!-- Modal content-->
+       <div class="modal-content">
+         <div class="modal-header">
+           <button type="button" class="close" data-dismiss="modal">&times;</button>
+           <h4 class="modal-title">33 Bagot Street</h4>
+           <div class="dateTime" id="timeyboye"></div>
+         </div>
+         <div class="modal-body">
+           <div class="modalDesign"></div>
+           <div class="loading-text-recycle">90%</div>
+           <div class="loading-text-garbage">20%</div>
+           <div class="garbage-icon"></div>
+           <div class="recycle-icon"></div>
+           <div class="progress rotated">
+             <div class="border-recycle"></div>
+             <div class="progress-bar progress-recycle" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:90%"></div>
+             <div class="progress-bar progress-garbage" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:20%"></div>
+           </div>
+         </div>
+       </div>
+     </div>
+  </div>
+
+  <div class="modal fade modalDown" id="garbageBin3" role="dialog">
+     <div class="modal-dialog">
+       <!-- Modal content-->
+       <div class="modal-content">
+         <div class="modal-header">
+           <button type="button" class="close" data-dismiss="modal">&times;</button>
+           <h4 class="modal-title">39 Bader Lane</h4>
+           <div class="dateTime" id="timeyboye"></div>
+         </div>
+         <div class="modal-body">
+           <div class="modalDesign"></div>
+           <div class="loading-text-recycle">65%</div>
+           <div class="loading-text-garbage">50%</div>
+           <div class="garbage-icon"></div>
+           <div class="recycle-icon"></div>
+           <div class="progress rotated">
+             <div class="border-recycle"></div>
+             <div class="progress-bar progress-recycle" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:65%"></div>
+             <div class="progress-bar progress-garbage" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:50%"></div>
            </div>
          </div>
        </div>

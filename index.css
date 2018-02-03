@@ -47,12 +47,12 @@
 .map-icon.map-icon-location1{
   background-image: var(--mapIconURL);
   left: 50%;
-  margin-top: 20%;
+  margin-top: 10%;
 }
 .map-icon.map-icon-location2{
   background-image: url("images/mapIcon3.png");
   left: 20%;
-  margin-top: 40%;
+  margin-top: 37%;
 }
 .map-icon.map-icon-location3{
   background-image: url("images/mapIcon2.png");

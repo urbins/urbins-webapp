@@ -23,14 +23,25 @@ firebaseRecycleRef.on('value', function(snap){
   };
   time.innerText = "Last Collected:  "+new Date(2018, 1, 1, 5, 2).toLocaleTimeString("en-us", options);
   recycleText.innerText = snap.val() + "%";
-  if (parseInt(recycleText.innerText) > 85){
-    document.documentElement.style.setProperty(`--mapIconURL`, url("images/mapIcon3.png"));
-  }else if ()
+  if (parseInt(recycleText.innerText) >= 85){
+    document.documentElement.style.setProperty(`--mapIconURL`, "url('images/mapIcon3.png')");
+  }else if (parseInt(recycleText.innerText) > 40 && parseInt(recycleText.innerText) < 85){
+    document.documentElement.style.setProperty(`--mapIconURL`, "url('images/mapIcon2.png')");
+  }else{
+    document.documentElement.style.setProperty(`--mapIconURL`, "url('images/mapIcon1.png')");
+  }
   document.documentElement.style.setProperty(`--recycle-width`, ""+recycleText.innerText+"");
 })
 
 firebaseGarbageRef.on('value', function(snap){
   var garbageText = document.getElementById("garbage-text");
   garbageText.innerText = snap.val() + "%";
+  if (parseInt(garbageText.innerText) >= 85){
+    document.documentElement.style.setProperty(`--mapIconURL`, "url('images/mapIcon3.png')");
+  }else if (parseInt(garbageText.innerText) > 40 && parseInt(garbageText.innerText) < 85){
+    document.documentElement.style.setProperty(`--mapIconURL`, "url('images/mapIcon2.png')");
+  }else{
+    document.documentElement.style.setProperty(`--mapIconURL`, "url('images/mapIcon1.png')");
+  }
   document.documentElement.style.setProperty(`--garbage-width`, ""+garbageText.innerText+"");
 })
