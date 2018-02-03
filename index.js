@@ -13,6 +13,7 @@ firebase.initializeApp(config);
 var firebaseGarbageRef = firebase.database().ref().child("status").child("garbage");
 var firebaseRecycleRef = firebase.database().ref().child("status").child("recycle");
 var textPadding = 18;
+
 firebaseRecycleRef.on('value', function(snap){
   var recycleText = document.getElementById("recycle-text");
   var time = document.getElementById("timeyboye");
@@ -22,21 +23,14 @@ firebaseRecycleRef.on('value', function(snap){
   };
   time.innerText = "Last Collected:  "+new Date(2018, 1, 1, 5, 2).toLocaleTimeString("en-us", options);
   recycleText.innerText = snap.val() + "%";
-  if (parseInt(recycleText.innerText) < textPadding){
-    document.documentElement.style.setProperty(`--textbumpLessR`, "30%");
-  }else{
-    document.documentElement.style.setProperty(`--textbumpLessR`, "50%");
-  }
+  if (parseInt(recycleText.innerText) > 85){
+    document.documentElement.style.setProperty(`--mapIconURL`, url("images/mapIcon3.png"));
+  }else if ()
   document.documentElement.style.setProperty(`--recycle-width`, ""+recycleText.innerText+"");
 })
 
 firebaseGarbageRef.on('value', function(snap){
   var garbageText = document.getElementById("garbage-text");
   garbageText.innerText = snap.val() + "%";
-  if (parseInt(garbageText.innerText) < textPadding){
-    document.documentElement.style.setProperty(`--textbumpLessG`, "30%");
-  }else{
-    document.documentElement.style.setProperty(`--textbumpLessG`, "30%");
-  }
   document.documentElement.style.setProperty(`--garbage-width`, ""+garbageText.innerText+"");
 })

@@ -30,13 +30,13 @@
   </head>
   <body>
     <div class="background"></div>
-    <button src="images/mapIcon.png" data-toggle="modal" data-target="#tourModal" class="map-icon"></button>
-
+    <button data-toggle="modal" data-target="#garbageBin1" class="map-icon map-icon-location1"></button>
+    <button data-toggle="modal" data-target="#tourModal" class="map-icon map-icon-location2"></button>
+    <button data-toggle="modal" data-target="#tourModal" class="map-icon map-icon-location3"></button>
   </body>
 
-  <div class="modal fade modalDown" id="tourModal" role="dialog">
+  <div class="modal fade modalDown" id="garbageBin1" role="dialog">
      <div class="modal-dialog">
-
        <!-- Modal content-->
        <div class="modal-content">
          <div class="modal-header">
@@ -48,8 +48,8 @@
            <div class="modalDesign"></div>
            <div class="loading-text-recycle" id="recycle-text"></div>
            <div class="loading-text-garbage" id="garbage-text"></div>
-           <div class="recycle-icon"></div>
            <div class="garbage-icon"></div>
+           <div class="recycle-icon"></div>
            <div class="progress rotated">
              <div class="border-recycle"></div>
              <div class="progress-bar progress-recycle" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
@@ -59,4 +59,5 @@
        </div>
      </div>
   </div>
+
 </html>
