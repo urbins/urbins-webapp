@@ -12,8 +12,7 @@
   position: fixed;
   left:0;
   top: 0;
-  background-image: url("background.png");
-  background-position:center;
+  background-image: url("images/background.png");
   background-repeat:none;
   background-size:cover;
   width: 100vw;
@@ -33,30 +32,42 @@
   border-color: lightgrey;
 }
 
-.icon{
+.map-icon{
   position: relative;
+  background-image: url("images/mapIcon1.png");
+  background-repeat:none;
+  background-size:cover;
   left: 50%;
   margin-top: 20%;
-  border-radius: 100%;
-  width: 20px;
-  height: 20px;
-  background-color: blue;
-  border-color: black;
-  border-width: 1px;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
   outline: none;
 }
-.icon:hover{
-  background-color: lightblue;
+
+.modalDesign{
+  position: absolute;
+  left: 23.5%;
+  top: 8%;
+  z-index: 10;
+  background-image: url("images/modalIcon.png");
+  background-size: cover;
+  width: 270px;
+  height:310px;
 }
 
 .rotated {
+  margin-top: -3.7%;
   display: inline-block;
   margin-left: 30%;
   width: 40%;
-  height: 80px;
-  -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+  height: 200px;
+  -webkit-transform: rotate(-90deg);
   transform: rotate(-90deg);
+  z-index: 9;
 }
+
 .rotated {
   box-shadow: inset 0px 4px 6px #ccc;
 }
@@ -65,49 +76,63 @@
 }
 
 .modal-body{
-  padding-top: 25%;
+  padding-top: 20%;
   height: 50vh;
 }
 
 .loading-text-recycle{
+  position: absolute;
   font-family: var(--headingFont);
-  font-size: 18px;
-  color: white;
-  padding-left: var(--textbumpLessR);
-  -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
-  transform: rotate(90deg);
+  font-size: 32px;
+  color: black;
 }
 
 .loading-text-garbage{
+  position: absolute;
+  top: 50%;
   font-family: var(--headingFont);
-  font-size: 18px;
-  color: white;
-  padding-left: var(--textbumpLessG);
-  -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+  font-size: 32px;
+  color: black;
+}
+
+.border-recycle{
+  position: absolute;
+  bottom: -18%;
+  background-color: transparent;
+  height: 370px;
+  width: 100px;
+  border-right: solid 2px black;
   transform: rotate(90deg);
 }
 
 .progress-recycle{
-  height: 40px;
+  background-color: green !important;
+  height: 100px;
   margin-right: 100%;
   width: var(--recycle-width);
 }
 
 .progress-garbage{
-  height: 40px;
+  background-color: lightblue !important;
+  height: 100px;
   width: var(--garbage-width);
 }
 
 .dateTime{
-  position: fixed;
-  top: 18%;
+  position: relative;
+  top: 5%;
   color: black;
-  font-size: 16px;
+  font-size: 15px;
   width: 500px;
-  height: 50px;
+  height: 20px;
   z-index: 100;
 }
 
 .modal{
   margin-top: 5%;
+}
+
+.modal-title{
+  font-size: 22px !important;
+  font-weight: 600;
 }

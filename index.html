@@ -18,19 +18,19 @@
     <script type="text/javascript" src="dependencies/jquery-ui.js"></script>
     <script type="text/javascript" src="dependencies/bootstrapFull/dist/js/bootstrap.min.js"></script>
 
-    <link rel="icon" href="icon.png"/>
+    <link rel="icon" href="images/icon.png"/>
     <title>URBINS</title>
 
     <nav class="navbar navbar-fixed-top">
         <div class="navbar-header">
-          <img src="title.png" class="logo"></img>
+          <img src="images/title.png" class="logo"></img>
        </div>
      </nav>
 
   </head>
   <body>
     <div class="background"></div>
-    <button data-toggle="modal" data-target="#tourModal" class="icon"></button>
+    <button src="images/mapIcon.png" data-toggle="modal" data-target="#tourModal" class="map-icon"></button>
 
   </body>
 
@@ -42,19 +42,17 @@
          <div class="modal-header">
            <button type="button" class="close" data-dismiss="modal">&times;</button>
            <h4 class="modal-title">220 University Avenue</h4>
+           <div class="dateTime" id="timeyboye"></div>
          </div>
          <div class="modal-body">
-           <div class="dateTime" id="timeyboye">hello</div>
+           <div class="modalDesign"></div>
+           <div class="loading-text-recycle" id="recycle-text"></div>
            <div class="progress rotated">
-              <div class="progress-bar progress-bar-success progress-recycle" role="progressbar"
-              aria-valuemin="0" aria-valuemax="100">
-                <div class="loading-text-recycle" id="recycle-text"></div>
-              </div>
-               <div class="progress-bar progress-garbage" role="progressbar"
-               aria-valuemin="0" aria-valuemax="100">
-                 <div class="loading-text-garbage" id="garbage-text"></div>
-               </div>
-             </div>
+             <div class="border-recycle"></div>
+             <div class="progress-bar progress-recycle" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+             <div class="progress-bar progress-garbage" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+           </div>
+           <div class="loading-text-garbage" id="garbage-text"></div>
          </div>
        </div>
      </div>

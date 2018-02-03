@@ -13,18 +13,6 @@ firebase.initializeApp(config);
 var firebaseGarbageRef = firebase.database().ref().child("status").child("garbage");
 var firebaseRecycleRef = firebase.database().ref().child("status").child("recycle");
 var textPadding = 18;
-
-firebaseGarbageRef.on('value', function(snap){
-  var garbageText = document.getElementById("garbage-text");
-  garbageText.innerText = snap.val() + "%";
-  if (parseInt(garbageText.innerText) < textPadding){
-    document.documentElement.style.setProperty(`--textbumpLessG`, "10px");
-  }else{
-    document.documentElement.style.setProperty(`--textbumpLessG`, "22px");
-  }
-  document.documentElement.style.setProperty(`--garbage-width`, ""+garbageText.innerText+"");
-})
-
 firebaseRecycleRef.on('value', function(snap){
   var recycleText = document.getElementById("recycle-text");
   var time = document.getElementById("timeyboye");
@@ -35,9 +23,20 @@ firebaseRecycleRef.on('value', function(snap){
   time.innerText = "Last Collected:  "+new Date(2018, 1, 1, 5, 2).toLocaleTimeString("en-us", options);
   recycleText.innerText = snap.val() + "%";
   if (parseInt(recycleText.innerText) < textPadding){
-    document.documentElement.style.setProperty(`--textbumpLessR`, "10px");
+    document.documentElement.style.setProperty(`--textbumpLessR`, "30%");
   }else{
-    document.documentElement.style.setProperty(`--textbumpLessR`, "22px");
+    document.documentElement.style.setProperty(`--textbumpLessR`, "50%");
   }
   document.documentElement.style.setProperty(`--recycle-width`, ""+recycleText.innerText+"");
+})
+
+firebaseGarbageRef.on('value', function(snap){
+  var garbageText = document.getElementById("garbage-text");
+  garbageText.innerText = snap.val() + "%";
+  if (parseInt(garbageText.innerText) < textPadding){
+    document.documentElement.style.setProperty(`--textbumpLessG`, "30%");
+  }else{
+    document.documentElement.style.setProperty(`--textbumpLessG`, "30%");
+  }
+  document.documentElement.style.setProperty(`--garbage-width`, ""+garbageText.innerText+"");
 })
