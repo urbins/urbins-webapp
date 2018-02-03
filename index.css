@@ -38,7 +38,7 @@
   display: inline-block;
   margin-left: 6%;
   width: 40%;
-  height: 40px;
+  height: 80px;
   -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
   transform: rotate(-90deg);
 }
@@ -58,15 +58,18 @@
   font-family: var(--headingFont);
   font-size: 18px;
   color: white;
-  padding-left: 22px;
+  padding-left: 18px;
   -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
   transform: rotate(90deg);
 }
 
 .progress-recycle{
+  height: 40px;
+  margin-right: 50%;
   width: var(--recycle-width);
 }
 
 .progress-garbage{
+  height: 40px;
   width: var(--garbage-width);
 }
