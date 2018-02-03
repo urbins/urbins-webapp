@@ -1,0 +1,72 @@
+:root{
+  --headingFont: "Poppins";
+  --bodyFont: "Muli";
+  --backgroundcolor1: #1a1a1a;
+  --recycle-width: 70%;
+  --garbage-width: 50%;
+}
+
+  body{
+  position: fixed;
+  left:0;
+  top: 0;
+  background-image: url("background.png");
+  background-position:center;
+  background-repeat:none;
+  background-size:cover;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+.icon{
+  position: relative;
+  left: 50%;
+  margin-top: 20%;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  background-color: blue;
+  border-color: black;
+  border-width: 1px;
+  outline: none;
+}
+.icon:hover{
+  background-color: lightblue;
+}
+
+.rotated {
+  display: inline-block;
+  margin-left: 6%;
+  width: 40%;
+  height: 40px;
+  -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+  transform: rotate(-90deg);
+}
+.rotated {
+  box-shadow: inset 0px 4px 6px #ccc;
+}
+.progress-bar {
+  box-shadow: inset 0px 4px 6px rgba(100,100,100,0.6);
+}
+
+.modal-body{
+  padding-top: 20%;
+  height: 50vh;
+}
+
+.loading-text{
+  font-family: var(--headingFont);
+  font-size: 18px;
+  color: white;
+  padding-left: 22px;
+  -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+  transform: rotate(90deg);
+}
+
+.progress-recycle{
+  width: var(--recycle-width);
+}
+
+.progress-garbage{
+  width: var(--garbage-width);
+}
