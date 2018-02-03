@@ -18,7 +18,15 @@
     <script type="text/javascript" src="dependencies/jquery-ui.js"></script>
     <script type="text/javascript" src="dependencies/bootstrapFull/dist/js/bootstrap.min.js"></script>
 
-    <title>Urbins</title>
+    <link rel="icon" href="icon.png"/>
+    <title>URBINS</title>
+
+    <nav class="navbar navbar-fixed-top">
+        <div class="navbar-header">
+          <img src="title.png" class="logo"></img>
+       </div>
+     </nav>
+
   </head>
   <body>
     <div class="background"></div>
@@ -36,15 +44,15 @@
            <h4 class="modal-title">220 University Avenue</h4>
          </div>
          <div class="modal-body">
+           <div class="dateTime" id="timeyboye">hello</div>
            <div class="progress rotated">
               <div class="progress-bar progress-bar-success progress-recycle" role="progressbar"
               aria-valuemin="0" aria-valuemax="100">
-                <div class="loading-text" id="recycle-text"> 70%</div>
+                <div class="loading-text-recycle" id="recycle-text"></div>
               </div>
-            
                <div class="progress-bar progress-garbage" role="progressbar"
                aria-valuemin="0" aria-valuemax="100">
-                 <div class="loading-text" id="garbage-text"> 50%</div>
+                 <div class="loading-text-garbage" id="garbage-text"></div>
                </div>
              </div>
          </div>
