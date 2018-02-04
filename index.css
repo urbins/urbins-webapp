@@ -74,8 +74,8 @@
 .rotated {
   margin-top: -3.7%;
   display: inline-block;
-  margin-left: 30%;
-  width: 40%;
+  margin-left: 27%;
+  width: 46%;
   height: 200px;
   -webkit-transform: rotate(-90deg);
   transform: rotate(-90deg);
@@ -90,14 +90,22 @@
 }
 
 .modal-body{
-  padding-top:18%;
+  padding-top: 10px;
+  padding-bottom: 25px;
+  height: 50vh;
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
+.modal-adjust{
+  padding-top: 20%;
   height: 50vh;
 }
 
 .loading-text-recycle{
   position: absolute;
   left: 11%;
-  top: 58%;
+  top: 50%;
   font-family: var(--headingFont);
   font-size: 32px;
   color: black;
@@ -106,7 +114,7 @@
 .loading-text-garbage{
   position: absolute;
   right: 10%;
-  top: 58%;
+  top: 50%;
   font-family: var(--headingFont);
   font-size: 32px;
   color: black;
@@ -119,7 +127,7 @@
   width: 70px;
   height: 70px;
   left: 9.5%;
-  top: 36%;
+  top: 30%;
 }
 
 .garbage-icon{
@@ -129,15 +137,15 @@
   width: 70px;
   height: 70px;
   right: 9.5%;
-  top: 36%;
+  top: 30%;
 }
 
 .border-recycle{
   position: absolute;
-  bottom: -18%;
+  bottom: -14%;
   background-color: transparent;
   height: 370px;
-  width: 100px;
+  width: 115px;
   border-right: solid 2px black;
   transform: rotate(90deg);
 }
@@ -171,4 +179,34 @@
 .modal-title{
   font-size: 22px !important;
   font-weight: 600;
+}
+
+.graph-title{
+  text-align: center;
+  color: black;
+  font-size: 20px;
+}
+
+.arrowButton{
+  position:fixed;
+  border: none;
+  width: 25px;
+  height: 25px;
+  font-size:20px;
+  outline: none;
+  background-color: transparent;
+}
+
+.arrowButton:hover{
+  color: #aaa;
+}
+
+.arrowButton.leftArrow{
+  left: 4px;
+  top: 50%;
+}
+
+.arrowButton.rightArrow{
+  right: 12px;
+  top: 50%;
 }

@@ -17,6 +17,10 @@
     <script type="text/javascript" src="dependencies/bootstrapFull/js/tests/vendor/jquery.min.js"></script>
     <script type="text/javascript" src="dependencies/jquery-ui.js"></script>
     <script type="text/javascript" src="dependencies/bootstrapFull/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="node_modules/chart.js/dist/Chart.js"></script>
+
+    <script src="http://jquery-ui.googlecode.com/svn/tags/latest/ui/jquery.effects.core.js"></script>
+    <script src="http://jquery-ui.googlecode.com/svn/tags/latest/ui/jquery.effects.slide.js"></script>
 
     <link rel="icon" href="images/icon.png"/>
     <title>URBINS</title>
@@ -45,7 +49,10 @@
            <div class="dateTime" id="timeyboye"></div>
          </div>
          <div class="modal-body">
-           <div class="modalDesign"></div>
+           <button id="leftClick" class="arrowButton leftArrow"><span class="glyphicon glyphicon-chevron-left"></span></button>
+           <button id="rightClick" class="arrowButton rightArrow"><span class="glyphicon glyphicon-chevron-right"></span></button>
+           <div id="og-panel" class="modal-adjust">
+            <div class="modalDesign"></div> <!--actual modal icon-->
            <div class="loading-text-recycle" id="recycle-text"></div>
            <div class="loading-text-garbage" id="garbage-text"></div>
            <div class="garbage-icon"></div>
@@ -55,6 +62,66 @@
              <div class="progress-bar progress-recycle" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
              <div class="progress-bar progress-garbage" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
            </div>
+         </div>
+
+         <div id="waste-panel">
+            <div class="graph-title">Waste Statistics</div>
+            <canvas id="wasteGraph"></canvas>
+            <script>
+              var ctx = document.getElementById("wasteGraph");
+              var myPieChart = new Chart(ctx,{
+                  type: 'pie',
+                  data: {
+                      datasets: [{
+                          data: [ 42.1, 68.9 ],
+                          backgroundColor:["#7B1FA2", "#4CAF50"]
+                      }],
+                      // These labels appear in the legend and in the tooltips when hovering different arcs
+                      labels: [
+                          'Garbage','Recycle'
+                      ]
+                  },
+                  options: {
+                    animation: {
+                      disply: true,
+                      duration: 5000,
+                      responsive: false,
+                      animateRotate: true
+                    },
+                    legend: {position:'bottom'},
+                     tooltips: {position:'nearest'}
+                  }
+              });
+
+            </script>
+          </div>
+
+          <div id="brand-panel">
+            <div class="graph-title">Brand Statistics</div>
+            <canvas id="brandGraph"></canvas>
+            <script>
+            var ctx2 = document.getElementById("brandGraph");
+            var myBarChart = new Chart(ctx2, {
+                type: 'horizontalBar',
+                data: {
+                  labels:["Kelloggs","McDonalds","Starbucks","Nestle","Lays"],
+                    datasets: [{
+                        backgroundColor:['#00cc00', '#006699', '#ff0000','#3333cc','#ffff00'],
+                        data: [421,355.2,100,68,40],
+                        borderWidth:1
+                    }],
+                },
+                options:{
+                  legend: {display:false},
+                  scales: {
+                    xAxes: [{display:true, scaleLabel:{fontColor: 'black', fontSize: '18',display:true, labelString:'Units'}}],
+                    yAxes: [{display:true, scaleLabel:{fontColor: 'black', fontSize: '18',display:true, labelString:'Brand'}}]
+                  }
+                }
+            });
+            </script>
+          </div>
+
          </div>
        </div>
      </div>
@@ -66,19 +133,21 @@
        <div class="modal-content">
          <div class="modal-header">
            <button type="button" class="close" data-dismiss="modal">&times;</button>
-           <h4 class="modal-title">33 Bagot Street</h4>
-           <div class="dateTime" id="timeyboye"></div>
+           <h4 class="modal-title">39 Bader Lane</h4>
+           <div class="dateTime">Last Collected: Friday, Feb 2, 2018, 7:02 AM</div>
          </div>
          <div class="modal-body">
-           <div class="modalDesign"></div>
-           <div class="loading-text-recycle">90%</div>
-           <div class="loading-text-garbage">20%</div>
-           <div class="garbage-icon"></div>
-           <div class="recycle-icon"></div>
-           <div class="progress rotated">
-             <div class="border-recycle"></div>
-             <div class="progress-bar progress-recycle" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:90%"></div>
-             <div class="progress-bar progress-garbage" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:20%"></div>
+           <div class="modal-adjust">
+             <div class="modalDesign"></div>
+             <div class="loading-text-recycle">90%</div>
+             <div class="loading-text-garbage">20%</div>
+             <div class="garbage-icon"></div>
+             <div class="recycle-icon"></div>
+             <div class="progress rotated">
+               <div class="border-recycle"></div>
+               <div class="progress-bar progress-recycle" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:90%"></div>
+               <div class="progress-bar progress-garbage" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:20%"></div>
+             </div>
            </div>
          </div>
        </div>
@@ -91,23 +160,73 @@
        <div class="modal-content">
          <div class="modal-header">
            <button type="button" class="close" data-dismiss="modal">&times;</button>
-           <h4 class="modal-title">39 Bader Lane</h4>
-           <div class="dateTime" id="timeyboye"></div>
+           <h4 class="modal-title">33 Bagot Street</h4>
+           <div class="dateTime">Last Collected: Wednesdy, Jan 31, 2018, 4:21 PM</div>
          </div>
          <div class="modal-body">
-           <div class="modalDesign"></div>
-           <div class="loading-text-recycle">65%</div>
-           <div class="loading-text-garbage">50%</div>
-           <div class="garbage-icon"></div>
-           <div class="recycle-icon"></div>
-           <div class="progress rotated">
-             <div class="border-recycle"></div>
-             <div class="progress-bar progress-recycle" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:65%"></div>
-             <div class="progress-bar progress-garbage" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:50%"></div>
-           </div>
+           <div class="modal-adjust">
+             <div class="modalDesign"></div>
+             <div class="loading-text-recycle">65%</div>
+             <div class="loading-text-garbage">50%</div>
+             <div class="garbage-icon"></div>
+             <div class="recycle-icon"></div>
+             <div class="progress rotated">
+               <div class="border-recycle"></div>
+               <div class="progress-bar progress-recycle" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:65%"></div>
+               <div class="progress-bar progress-garbage" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:50%"></div>
+             </div>
+          </div>
          </div>
        </div>
      </div>
   </div>
+
+  <script>
+    var page = 0;
+    var sleepTime = 300;
+    var hideTime = 100;
+    var showTime = 275;
+    $(document).ready(function(){
+      $('#og-panel').show();
+      $('#waste-panel').hide();
+      $('#brand-panel').hide();
+      $('#leftClick').click(function(){
+        if (page == 2){
+          page = 0;
+          $('#og-panel').delay(sleepTime).show('slide', {direction: 'left'}, showTime);
+          $('#waste-panel').hide();
+          $('#brand-panel').hide('slide', {direction: 'right'}, hideTime);
+        }else if (page == 0){
+          page = 1;
+          $('#og-panel').hide('slide', {direction: 'right'}, hideTime);
+          $('#waste-panel').delay(sleepTime).show('slide', {direction: 'left'}, showTime);
+          $('#brand-panel').hide();
+        }else{
+          page = 2;
+          $('#og-panel').hide();
+          $('#waste-panel').hide('slide', {direction: 'right'}, hideTime);
+          $('#brand-panel').delay(sleepTime).show('slide', {direction: 'left'}, showTime);
+        }
+      })
+      $('#rightClick').click(function(){
+        if (page == 1){
+          page = 0;
+          $('#og-panel').delay(sleepTime).show('slide', {direction: 'right'}, showTime);
+          $('#waste-panel').hide('slide', {direction: 'left'}, hideTime);
+          $('#brand-panel').hide();
+        }else if (page == 0){
+          page = 2;
+          $('#og-panel').hide('slide', {direction: 'left'}, hideTime);
+          $('#waste-panel').hide();
+          $('#brand-panel').delay(sleepTime).show('slide', {direction: 'right'}, showTime);
+        }else{
+          page = 1;
+          $('#og-panel').hide();
+          $('#waste-panel').delay(sleepTime).show('slide', {direction: 'right'}, showTime);
+          $('#brand-panel').hide('slide', {direction: 'left'}, hideTime);
+        }
+      })
+    });
+  </script>
 
 </html>
