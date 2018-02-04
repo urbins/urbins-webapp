@@ -17,10 +17,11 @@
     <script type="text/javascript" src="dependencies/bootstrapFull/js/tests/vendor/jquery.min.js"></script>
     <script type="text/javascript" src="dependencies/jquery-ui.js"></script>
     <script type="text/javascript" src="dependencies/bootstrapFull/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="node_modules/chart.js/dist/Chart.js"></script>
+
 
     <script src="http://jquery-ui.googlecode.com/svn/tags/latest/ui/jquery.effects.core.js"></script>
     <script src="http://jquery-ui.googlecode.com/svn/tags/latest/ui/jquery.effects.slide.js"></script>
+    <script type="text/javascript" src="node_modules/chart.js/dist/Chart.bundle.js"></script>
 
     <link rel="icon" href="images/icon.png"/>
     <title>URBINS</title>
@@ -66,33 +67,36 @@
 
          <div id="waste-panel">
             <div class="graph-title">Waste Statistics</div>
-            <canvas id="wasteGraph"></canvas>
-            <script>
-              var ctx = document.getElementById("wasteGraph");
-              var myPieChart = new Chart(ctx,{
-                  type: 'pie',
-                  data: {
-                      datasets: [{
-                          data: [ 42.1, 68.9 ],
-                          backgroundColor:["#7B1FA2", "#4CAF50"]
-                      }],
-                      // These labels appear in the legend and in the tooltips when hovering different arcs
-                      labels: [
-                          'Garbage','Recycle'
-                      ]
-                  },
-                  options: {
-                    animation: {
-                      disply: true,
-                      duration: 5000,
-                      responsive: false,
-                      animateRotate: true
-                    },
-                    legend: {position:'bottom'},
-                     tooltips: {position:'nearest'}
-                  }
-              });
+            <div id="canvas-holder">
+              <canvas id="chart-area" />
+            </div>
 
+            <script>
+            var config = {
+              type: 'pie',
+              data: {
+                datasets: [{
+                    data: [ 42.1, 68.9 ],
+                    backgroundColor:["#7B1FA2", "#4CAF50"]
+                }],
+                // These labels appear in the legend and in the tooltips when hovering different arcs
+                labels: [
+                    'Garbage','Recycle'
+                ]
+              },
+              options: {
+                animation:{
+                  duration: 5000
+                },
+                legend:{position:'bottom'},
+                  responsive: true
+              }
+            };
+
+            window.onload = function() {
+              var ctx = document.getElementById("chart-area").getContext("2d");
+              window.myPie = new Chart(ctx, config);
+            };
             </script>
           </div>
 
@@ -114,8 +118,15 @@
                 options:{
                   legend: {display:false},
                   scales: {
-                    xAxes: [{display:true, scaleLabel:{fontColor: 'black', fontSize: '18',display:true, labelString:'Units'}}],
-                    yAxes: [{display:true, scaleLabel:{fontColor: 'black', fontSize: '18',display:true, labelString:'Brand'}}]
+                    xAxes: [{
+                      display:true,
+                      ticks: {fontSize: 15, fontColor: 'black'},
+                      scaleLabel:{fontColor: 'black', fontSize: '18',display:true, labelString:'Units'}
+                    }],
+                    yAxes: [{display:true,
+                      ticks: {fontSize: 15, fontColor: 'black'},
+                      scaleLabel:{fontColor: 'black', fontSize: '18',display:true, labelString:'Brand'}
+                    }]
                   }
                 }
             });
@@ -187,8 +198,8 @@
     var hideTime = 100;
     var showTime = 275;
     $(document).ready(function(){
-      $('#og-panel').show();
-      $('#waste-panel').hide();
+      $('#og-panel').hide();
+      $('#waste-panel').show();
       $('#brand-panel').hide();
       $('#leftClick').click(function(){
         if (page == 2){
